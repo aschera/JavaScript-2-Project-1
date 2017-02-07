@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mockups</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+<style>
+body, html {
+	overflow-x:hidden;
+	margin:0;
+	padding:0;
+	font-family:'Fredoka One', cursive;}
+
+.logo           {font-size:40px; 
+				 padding:20px 10px 20px 10px; 
+				 margin:5px;}
+.text-header    {font-size:32px;
+				 padding:5px; 
+				 margin:5px;}
+.text-subheader {font-size:20px;
+				 padding:5px; padding-top:0;
+				 margin:5px; margin-top:0;}
+
+#intro, #result {position:absolute; 
+				 top:0; 
+				 width:100vw;}
+.choices 		{}
+.choice         {color:#fff;
+				 font-size:18px;
+				 border:2px solid #333;
+				 text-shadow:1px 1px 1px black;
+			     transition:0.3s !important; 
+			     height:200px;
+			     margin:auto; 
+			     margin-bottom:12.5px;}
+.choice:hover   {cursor:pointer;}
+.choice span    {width:100%;}
+.left-choice    {background:linear-gradient(to bottom, rgb(119,213,241), rgb(63,174,217));}
+.right-choice   {background:linear-gradient(to bottom, rgb(234,48,49), rgb(209,35,36));}
+
+#result  		{visibility:hidden; 
+				 display:none;}
+#intro          {visibility:visible; 
+				 display:block; 
+				 margin:auto;}
+.auto-aligner   {max-width:700px;}
+
+@media only screen and (max-width:600px) {
+	.s6 {
+		width:100% !important;
+	}
+	.choice {
+		height:100px;
+		font-size:25px;
+	}
+}
+@media only screen and (min-width:1000px) {
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="intro">
+	<div class="container auto-aligner">
+		<div class="center-align">
+			<h1 class="logo">LOGO</h1>
+			<h3 class="text-header">Take our test</h3>
+			<h5 class="text-subheader">to know where you should go</h5>
+		</div>
+		<div class="row center-align choices">
+			<div class="col s6">
+				<div class="left-choice card-panel hoverable choice valign-wrapper"><span class="valign">LEFT CHOICE</span></div>
+			</div>
+			<div class="col s6">
+				<div class="right-choice card-panel hoverable choice valign-wrapper"><span class="valign">RIGHT CHOICE</span></div>
+			</div>
+			<div class="progress">
+			    <div class="determinate" style="width:0%"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="result">
+
+	<div class="center-align">
+		<h1 class="logo">LOGO</h1>
+		<h3 class="text-header">Take our test</h3>
+		<h5 class="text-subheader">to know where you should go</h5>
+	</div>
+
+	<div class="carousel">
+	    <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
+	    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
+	    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
+	    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+	    <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+	</div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<script>
+
+var x = 0;
+
+$('.determinate').css({'width':x+'%'});
+
+
+$(document).ready(function(){
+    $('.carousel').carousel();
+});
+
+
+$('.choice').click(function() {
+	x += 10;
+  $('.determinate').css({'width':x+'%'});
+});
+
+
+</script>
+</body>
+</html>
