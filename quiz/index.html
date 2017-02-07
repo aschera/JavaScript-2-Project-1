@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>Quiz 1</title>
+	
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+	
+	<!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+<style>
+       .box {
+           background-color: aquamarine;
+       }
+       #second {
+            display: none;
+           }
+       #third {
+            display: none;
+           }
+    
+#hot {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/1.jpg);
+    background-repeat: no-repeat;
+}
+    
+#cold {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/2.jpg);
+    background-repeat: no-repeat;
+}
+    
+#high {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/4.jpg);
+    background-repeat: no-repeat;
+}
+    
+#low {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/3.jpg);
+    background-repeat: no-repeat;
+}
+    
+#wet {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/5.jpg);
+    background-repeat: no-repeat;
+}
+    
+#dry {
+    width: 150px;
+    height: 150px;
+    background-image: url(images/6.jpg);
+    background-repeat: no-repeat;
+}
+</style>
+    
+    <script>
+        
+    function showNext(x, y) {
+    div = document.getElementById(y);
+    div.style.display = "block";
+        
+    div = document.getElementById(x);
+    div.style.display = "none";
+    
+    }
+        
+    </script>
+</head>
+
+<body>
+
+  
+
+	<div id="page-wrap">
+
+        <header>
+		  Quiz Header
+		</header>
+		
+		<section id="main-content">
+            
+		<div id="first">
+		  <p>Question 1: Hot or cold?</p> 
+		  <div  class="box" >
+              
+		          <button id="hot" onclick="showNext('first', 'second')">Hot
+		          <button id="cold" onclick="showNext('first', 'second')">Cold
+		     
+          </div>  	 
+		</div>
+            
+        <div id="second">
+		  <p>Question 2: High or low?</p> 
+		  <div  class="box" >
+              
+		          <button id="high" onclick="showNext('second', 'third')">High
+		          <button id="low" onclick="showNext('second', 'third')">Low
+		     
+          </div>  	 
+		</div>
+            
+        <div id="third">
+		  <p>Question 3: Wet or Dry?</p> 
+		  <div  class="box" >
+             
+		          <button id="wet" onclick="showNext('third', 'fourth')">Wet
+		          <button id="dry" onclick="showNext('third', 'fourth')">Dry
+		     
+          </div>  	 
+		</div>
+            
+		</section>
+		
+	</div>
+	
+	<footer>
+	  
+	</footer>
+
+	
+
+</body>
+
+</html>
