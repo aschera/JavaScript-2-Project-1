@@ -4,7 +4,7 @@
 		window.addEventListener('load', function() {   // so shit loads and then runs.
             
             
-			let button = document.getElementById('button');
+			let button = document.getElementById("button");
 			button.addEventListener('click', function() {
                 
 				// DOM-element to display results in.

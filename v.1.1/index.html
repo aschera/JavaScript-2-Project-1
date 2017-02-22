@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pick</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Pick | The quiz to know where you should go</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+	<link rel="stylesheet" href="assets/style.css"/>
+    
+    <script src="foursquare.js"></script>
+    <script src="wiki.js"></script>
+    
+    <script>
+        
+    var references = [{
+		name:'Australia',
+		island:false,
+		wonders:true,
+		attractions:false,
+		safe:false,
+		dangerous_animals:true,
+		dangerous_diseases:false,
+		size:'Large',
+		temp:'Hot',
+		population_density:'Scarce',
+		natural_disasters:false}];
+        
+    // URL REST countries API
+    // We need this to find the capital city of the country we find.
+    // and also the latitude and longtitude for the google map
+    // it needs to be here, so it loads before the other scripts.
+        
+				let url2 = 'https://restcountries.eu/rest/v1/name/';
+                
+                // where?
+                url2 += references[0].name;
+                
+				// AJAX request REST countries
+				let ajax2 = new XMLHttpRequest();
+				ajax2.open('get', url2);
+				ajax2.onreadystatechange = function() {
+					if( ajax2.status == 200 && ajax2.readyState == 4 ) {
+                        
+                        let json2 = JSON.parse(ajax2.responseText);
+                            
+                        // City
+                        references.city = json2[0].capital;
+                        
+                        // lat/lng
+                        references.lat = json2[0].latlng[0];
+                        references.lng = json2[0].latlng[1];
+                        
+                        console.log(json2[0].latlng[0]);
+					}
+					else if( ajax2.status != 200 ) {
+						
+					}
+				};
+				ajax2.send();  
+    </script>
+</head>
+<body>
+<div id="quiz-page">
+	<div class="container pick bg-dark font-light">
+		<div class="row text-center">
+			<img src="assets/images/logo.png" alt="Pick | The quiz to know where you should go" class="logo" />
+			<br><h2><span class="header-size-aligner">The quiz to know</span> </br>where you should go</h2>
+		</div>
+	</div>
+	<div class="container text-center height-justifier">
+		<div class="row" id="questions">
+			<h2 class="bg-dark font-light quiz-header">
+				<span id="currentInfoHeader" class="description-size-aligner">Choose what you like better:</span>
+				<br/><span id="currentInfo">Hot or cold?</span>
+			</h2>
+			<div id="question1" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-1-a.png" alt="question-a" onclick="nextQuestion(userinput[0].island,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-1-b.png" alt="question-b" onclick="nextQuestion(userinput[0].island,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question2" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-2-a.png" alt="question-a" onclick="nextQuestion(userinput[0].wonders,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-2-b.png" alt="question-b" onclick="nextQuestion(userinput[0].wonders,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question3" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-3-a.png" alt="question-a" onclick="nextQuestion(userinput[0].attractions,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-3-b.png" alt="question-b" onclick="nextQuestion(userinput[0].attractions,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question4" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-4-a.png" alt="question-a" onclick="nextQuestion(userinput[0].safe,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-4-b.png" alt="question-b" onclick="nextQuestion(userinput[0].safe,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question5" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-5-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_animals,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-5-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_animals,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question6" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-6-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_diseases,true); this.onclick=null;"/></div>
+				<div class="col-xs-6"><img src="assets/images/question-6-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_diseases,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question7" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-7-a.png" alt="question-a" onclick="nextQuestion(userinput[0].size,'Large'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-7-b.png" alt="question-b" onclick="nextQuestion(userinput[0].size,'Small'); this.onclick=null;" /></div>
+			</div>
+			<div id="question8" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-8-a.png" alt="question-a" onclick="nextQuestion(userinput[0].temp,'Hot'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-8-b.png" alt="question-b" onclick="nextQuestion(userinput[0].temp,'Cold'); this.onclick=null;" /></div>
+			</div>
+			<div id="question9" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-9-a.png" alt="question-a" onclick="nextQuestion(userinput[0].pop_density,'Dense'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-9-b.png" alt="question-b" onclick="nextQuestion(userinput[0].pop_density,'Scarce'); this.onclick=null;" /></div>
+			</div>
+			<div id="question10" class="question is-paused">
+                <div id="button">
+				<div class="col-xs-6"><img src="assets/images/question-10-a.png" alt="question-a" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" /></div>
+				<div class="col-xs-6""><img src="assets/images/question-10-b.png" alt="question-b" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" /></div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- | RESULT PAGE GOES HERE | -->
+<div class="container">
+          <div class="row text-center">
+              <div class="col-xs-12">
+                  <img src="logo2.png" alt="HTML5 Icon" style="width:150px;height:90px;">
+
+              </div><!--/colxs 6-->
+          </div><!--/row1-->
+          
+          <div class="row">
+                <!-- col-sm-6 col-md-6 can add -->
+              <div class=" col-lg-6">
+                  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
+                      <div class="panel-heading" id="wiki_header"> 
+                          Here goes the city name
+                     </div>
+                      <div id="wiki_box" class="panel-body" >
+						Here goes the wikipedia text	
+                      </div><!--panel body1-->
+                  </div><!-- /panel default -->
+              </div>
+              
+              <div class="col-lg-6">
+                  <div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">  
+                  </div><!-- /panel default -->
+              </div>
+          </div><!--/row 2 boxes-->
+          
+          <div class="row">
+            <!-- col-sm-6 col-md-6 can add -->
+             <div class=" col-lg-6">
+                <div class="panel panel-default">
+                   <div class="panel-heading"> <h3>Reviews</h3>
+                   </div>
+                   <div id ="foursquare_box" class="panel-body">
+                       <button id="buttonx" onclick="initMap()">Click me</button>
+                       <br>
+                       <ul id="list"></ul>
+                    </div><!--panel body1-->
+                 </div><!-- /panel default -->
+             </div>
+              
+             <div class="col-lg-6">
+                <div class="panel panel-dfault">
+                   <div id="picture_box" class="panel-body">
+                          Pictures
+                        </div><!--/panel body3 -->
+                      </div><!-- /panel3 for map-->
+          </div>
+        
+
+            </div><!--panel body1-->
+         </div><!-- /panel default -->
+      </div>
+
+     </div><!--/container-->
+
+<div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
+
+<!-- | RESULT PAGE GOES HERE | -->
+
+
+
+
+
+<script type="text/javascript" src="assets/script.js"></script>
+<!-- Google needs id!
+AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
+    
+<script> // Google API for the map. 
+// Needs to be here too, so it lopads properly.
+    
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById("map_box"), {
+          center: {lat: references.lat, lng: references.lng},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+</script> Google 2nd API script.
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap"
+    async defer></script>
+</body>
+</html>
