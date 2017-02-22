@@ -10,6 +10,7 @@
 <script src="foursquare.js"></script>
 <script src="wiki.js"></script>
 
+
 <style>
  html, body{
 		 background-color:rgb(40,30,30);
@@ -21,7 +22,7 @@
 
 <script> 
 //test country
-    var result_country = {name: 'Sweden', lat:0, lng:0, city: ''};
+    var result_country = {name: 'Germany', lat:0, lng:0, city: ''};
 
 // URL REST countries API
     // We need this to find the capital city of the country we find.
@@ -71,7 +72,7 @@
 							<!-- col-sm-6 col-md-6 can add -->
 							 <div class=" col-lg-6">
 								  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
-                     <div class="panel-heading"> <h3>Wikipedia</h3>
+                     <div class="panel-heading" id="wiki_header"> 
                      </div>
 										 <div id="wiki_box" class="panel-body" >
 								  
@@ -93,7 +94,7 @@
             <!-- col-sm-6 col-md-6 can add -->
              <div class=" col-lg-6">
                 <div class="panel panel-default">
-                   <div class="panel-heading"> <h3>Foursquare</h3>
+                   <div class="panel-heading"> <h3>Reviews</h3>
                    </div>
                    <div id ="foursquare_box" class="panel-body">
 <button id="button" onclick="initMap()">Click me</button>
@@ -105,8 +106,8 @@
              </div>
              <div class="col-lg-6">
                 <div class="panel panel-dfault">
-                   <div id="instagram box" class="panel-body">
-                          <img src="africa3.png" alt="..." class="img-thumbnail">
+                   <div id="picture_box" class="panel-body">
+                          Pictures
                         </div><!--/panel body3 -->
                       </div><!-- /panel3 for map-->
           </div>

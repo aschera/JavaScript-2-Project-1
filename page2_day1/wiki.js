@@ -10,6 +10,7 @@
 				// DOM-element to display results in.
 				
 				let res = document.getElementById('wiki_box');
+				let header = document.getElementById('wiki_header');
                 		
 			
 // wikipedia api
@@ -30,7 +31,7 @@
                 
                 console.log (url3);
                 
-				// AJAX request Foursquare
+				// AJAX request Wikipedia
 				let ajax3 = new XMLHttpRequest();
 				ajax3.open('get', url3);
 				ajax3.onreadystatechange = function() {
@@ -40,6 +41,7 @@
 						let json3= JSON.parse(ajax3.responseText);
 						
 						res.innerHTML = json3[2];
+						header.innerHTML = '<h3>' + result_country.city + '</h3>';
 						console.log(json3);
                         
                        
