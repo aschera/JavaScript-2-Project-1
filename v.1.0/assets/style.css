@@ -1,0 +1,83 @@
+/* --- | Defaults | ---  */
+html, body {
+	margin:0; 
+	padding:0; 
+	font-family: 'Varela Round', sans-serif;
+	background-color:#ccc;}
+
+/* --- | Question div superblock | ---  */
+#questions {
+	top:50px;
+	position:relative;}
+#questions .question {
+	position:absolute;
+	width:100%;}
+#questions .question div {
+	width:50%;
+	float:left;
+	text-align:center;}
+#questions .question div img {
+	min-height:300px;
+	max-height:300px;
+	transition:0.15s ease;}
+#questions .question div img:hover {
+	cursor:pointer;
+	transform:scale(1.02);
+	filter:grayscale(100%);}
+.question {
+	background-color:#fff;
+	padding:50px;
+	opacity: 1;
+  	animation: fadeOut .2s ease-out forwards;}
+.question img:nth-child(1) {
+	border:2px solid #fff;}
+.question img:nth-child(2) {
+	border:2px solid #fff;}
+#question1  {z-index:10;}
+#question2  {z-index:9;}
+#question3  {z-index:8;}
+#question4  {z-index:7;}
+#question5  {z-index:6;}
+#question6  {z-index:5;}
+#question7  {z-index:4;}
+#question8  {z-index:3;}
+#question9  {z-index:2;}
+#question10 {z-index:1;}
+
+/* --- | Quiz-header padding and styling | ---  */
+.quiz-header {
+	padding:10px;
+	border-bottom:2px solid #fff;}
+
+/* --- | Colors and aligners | ---  */
+.bg-dark {
+	background:rgb(30,30,30);}
+.bg-light {
+	background:#fff;}
+.font-light {
+	color:#fff;}
+.header-size-aligner {
+	font-size:36px;}
+.description-size-aligner {
+	font-size:26px;}
+.height-justifier {
+	margin-top:-50px;}
+
+/* --- | Info header | ---  */
+#currentInfo {
+	font-size:35px;
+	color:yellow;}
+
+/* --- | Logo | ---  */
+.logo {
+	margin-top:20px;
+	margin-bottom:-20px;
+	width:150px;
+	height:90px;}
+.pick {
+	margin-top:50px;}
+
+/* --- | Animation play-state | ---  */
+.is-paused {
+	animation-play-state: paused;}
+@keyframes fadeOut {to {opacity: 0;}}

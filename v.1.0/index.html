@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Function</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Pick | The quiz to know where you should go</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+	<link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+<div id="quiz-page">
+	<div class="container pick bg-dark font-light">
+		<div class="row text-center">
+			<img src="assets/images/logo.png" alt="Pick | The quiz to know where you should go" class="logo" />
+			<br><h2><span class="header-size-aligner">The quiz to know</span> </br>where you should go</h2>
+		</div>
+	</div>
+	<div class="container text-center height-justifier">
+		<div class="row" id="questions">
+			<h2 class="bg-dark font-light quiz-header">
+				<span id="currentInfoHeader" class="description-size-aligner">Choose what you like better:</span>
+				<br/><span id="currentInfo">Hot or cold?</span>
+			</h2>
+			<div id="question1" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-1-a.png" alt="question-a" onclick="nextQuestion(userinput[0].island,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-1-b.png" alt="question-b" onclick="nextQuestion(userinput[0].island,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question2" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-2-a.png" alt="question-a" onclick="nextQuestion(userinput[0].wonders,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-2-b.png" alt="question-b" onclick="nextQuestion(userinput[0].wonders,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question3" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-3-a.png" alt="question-a" onclick="nextQuestion(userinput[0].attractions,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-3-b.png" alt="question-b" onclick="nextQuestion(userinput[0].attractions,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question4" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-4-a.png" alt="question-a" onclick="nextQuestion(userinput[0].safe,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-4-b.png" alt="question-b" onclick="nextQuestion(userinput[0].safe,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question5" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-5-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_animals,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-5-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_animals,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question6" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-6-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_diseases,true); this.onclick=null;"/></div>
+				<div class="col-xs-6"><img src="assets/images/question-6-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_diseases,false); this.onclick=null;" /></div>
+			</div>
+			<div id="question7" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-7-a.png" alt="question-a" onclick="nextQuestion(userinput[0].size,'Large'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-7-b.png" alt="question-b" onclick="nextQuestion(userinput[0].size,'Small'); this.onclick=null;" /></div>
+			</div>
+			<div id="question8" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-8-a.png" alt="question-a" onclick="nextQuestion(userinput[0].temp,'Hot'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-8-b.png" alt="question-b" onclick="nextQuestion(userinput[0].temp,'Cold'); this.onclick=null;" /></div>
+			</div>
+			<div id="question9" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-9-a.png" alt="question-a" onclick="nextQuestion(userinput[0].pop_density,'Dense'); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-9-b.png" alt="question-b" onclick="nextQuestion(userinput[0].pop_density,'Scarce'); this.onclick=null;" /></div>
+			</div>
+			<div id="question10" class="question is-paused">
+				<div class="col-xs-6"><img src="assets/images/question-10-a.png" alt="question-a" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" /></div>
+				<div class="col-xs-6"><img src="assets/images/question-10-b.png" alt="question-b" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" /></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- | RESULT PAGE GOES HERE | -->
+<!-- | RESULT PAGE GOES HERE | -->
+<!-- | RESULT PAGE GOES HERE | -->
+
+
+
+
+
+<script type="text/javascript" src="assets/script.js"></script>
+</body>
+</html>
