@@ -9,7 +9,7 @@
 
 <script src="foursquare.js"></script>
 <script src="wiki.js"></script>
-
+<script src="weather.js"></script>
 
 <style>
  html, body{
@@ -22,7 +22,7 @@
 
 <script> 
 //test country
-    var result_country = {name: 'Denmark', lat:0, lng:0, city: ''};
+    var result_country = {name: 'Egypt', lat:0, lng:0, city: ''};
 
 // URL REST countries API
     // We need this to find the capital city of the country we find.
@@ -73,10 +73,11 @@
 							 <div class=" col-lg-6">
 								  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
                      <div class="panel-heading" id="wiki_header"> 
+
                      </div>
 										 <div id="wiki_box" class="panel-body" >
 								  
-                      <div class="panel-footer">Weather Information</div>
+                      
 							        </div><!--panel body1-->
 							     </div><!-- /panel default -->
 							 </div>
@@ -107,7 +108,7 @@
              <div class="col-lg-6">
                 <div class="panel panel-dfault">
                    <div id="picture_box" class="panel-body">
-                          Pictures
+                          <div id="weather">Weather Information</div>
                         </div><!--/panel body3 -->
                       </div><!-- /panel3 for map-->
           </div>
