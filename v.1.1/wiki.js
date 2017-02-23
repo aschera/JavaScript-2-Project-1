@@ -38,13 +38,12 @@
 					if( ajax3.status == 200 && ajax3.readyState == 4 ) {
                         
 						// AJAX success
-						let json3= JSON.parse(ajax3.responseText);
-						
-						res.innerHTML = json3[2];
-						header.innerHTML = '<h3>' + references.city + '</h3>';
-						console.log(json3);
-                        
-                       
+						var data_array = ajax3.responseText.replace(/[`~@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
+						var splitted = data_array.split(',');
+						var text = splitted.slice(11,100);
+						console.log(splitted);
+						res.innerHTML = text;
+				
 					}
 					else if( ajax3.status != 200 ) {
 						console.log('error');
