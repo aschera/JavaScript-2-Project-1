@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1"
+	  <title>Pick</title>
+	<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<script src="foursquare.js"></script>
+    
+<script> 
+//test country
+    var result_country = {name: 'Egypt', lat:0, lng:0, city: ''};
+</script>
+    
+<script>
+ 
+let button = document.getElementById('button');
+let res = document.getElementById('foursquare_box');
+
+            
+// URL REST countries API
+// We need this to find the capital city of the country we find.
+// and also the latitude and longtitude for the google map
+
+				let url2 = 'https://restcountries.eu/rest/v1/name/';
+                
+                // where?
+                url2 += result_country.name;
+                
+				// AJAX request REST countries
+				let ajax2 = new XMLHttpRequest();
+				ajax2.open('get', url2);
+				ajax2.onreadystatechange = function() {
+					if( ajax2.status == 200 && ajax2.readyState == 4 ) {
+                        
+                        let json2 = JSON.parse(ajax2.responseText);
+                            
+                        // City
+                        result_country.city = json2[0].capital;
+                        
+                        // lat/lng
+                        result_country.lat = json2[0].latlng[0];
+                        result_country.lng = json2[0].latlng[1];
+
+					}
+					else if( ajax2.status != 200 ) {
+						
+					}
+				};
+				ajax2.send();  
+
+
+</script>
+    
+<style>
+ html, body{
+		 background-color:rgb(40,30,30);
+		 color: black;
+ }
+</style>
+ 
+  </head>
+  <body>
+
+         <div class="container">
+					  <div class="row text-center">
+               <div class="col-xs-12">
+								 <img src="logo2.png" alt="HTML5 Icon" style="width:150px;height:90px;">
+
+							 </div><!--/colxs 6-->
+            </div><!--/row1-->
+
+						<div class="row">
+							<!-- col-sm-6 col-md-6 can add -->
+							 <div class=" col-lg-6">
+								  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
+                     <div class="panel-heading" id="wiki_header"> 
+
+                     </div>
+										 <div id="wiki_box" class="panel-body" >
+								  
+                      
+							        </div><!--panel body1-->
+							     </div><!-- /panel default -->
+							 </div>
+							 <div class="col-lg-6">
+		
+								<div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">
+														
+											
+										
+							</div><!-- /panel default -->
+							
+            </div>
+          </div><!--/row 2 boxes-->
+          <div class="row">
+            <!-- col-sm-6 col-md-6 can add -->
+             <div class=" col-lg-6">
+                <div class="panel panel-default">
+                   <div class="panel-heading"> <h3>Reviews</h3>
+                   </div>
+                   <div id ="foursquare_box" class="panel-body">
+<button id="button" onclick="initMap()">Click me</button>
+<br>
+                    <ul id="list"></ul>
+
+                    </div><!--panel body1-->
+                 </div><!-- /panel default -->
+             </div>
+             <div class="col-lg-6">
+                <div class="panel panel-dfault">
+                   <div id="picture_box" class="panel-body">
+                          <div id="weather">Weather Information</div>
+                        </div><!--/panel body3 -->
+                      </div><!-- /panel3 for map-->
+          </div>
+       
+
+
+     </div><!--/container-->
+
+           <div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
+
+
+
+    <!-- Google needs id!
+    AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
+    
+<script> // Google API for the map. 
+// Needs to be here too, so it lopads properly.
+    
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById("map_box"), {
+          center: {lat: result_country.lat, lng: result_country.lng},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+</script> Google 2nd API script.
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap"
+    async defer></script>
+  </body>
+</html>
+
+
