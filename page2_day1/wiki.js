@@ -4,7 +4,7 @@
 		window.addEventListener('load', function() {   // so shit loads and then runs.
             
             
-			let button = document.getElementById('button');
+			let button = document.getElementById("button");
 			button.addEventListener('click', function() {
                 
 				// DOM-element to display results in.
@@ -15,10 +15,13 @@
 			
 // wikipedia api
 
-				let url3 = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=';
+				let url3 = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=';
+//https://en.wikipedia.org/w/api.php?action=opensearch&format=jsonfm&search=';
+
+//
 
 				//city
-				url3 += references.city + '&';
+				url3 += result_country.city + '&';
 				
 
 				//rest
@@ -38,13 +41,12 @@
 					if( ajax3.status == 200 && ajax3.readyState == 4 ) {
                         
 						// AJAX success
-						let json3= JSON.parse(ajax3.responseText);
-						
-						res.innerHTML = json3[2];
-						header.innerHTML = '<h3>' + references.city + '</h3>';
-						console.log(json3);
-                        
-                       
+						var data_array = ajax3.responseText.replace(/[u02\\`~@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
+						var splitted = data_array.split(',');
+						var text = splitted.slice(7,100);
+						console.log(splitted);
+						res.innerHTML = '<p>' + text + '</p><p>';
+				
 					}
 					else if( ajax3.status != 200 ) {
 						console.log('error');

@@ -32,7 +32,7 @@
 				//url += 'll=' + result_country.lat + ',' + result_country.lng + '&';
                 
                 // near city
-                url += 'near=' + references.city + '&';
+                url += 'near=' + result_country.city + '&';
 
                 //radius
                 let radius = 200;

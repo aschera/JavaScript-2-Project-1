@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1"
-	  
-            <title>Pick</title>
-    
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1"
+	  <title>Pick</title>
 	<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-    <script src="foursquare.js"></script>
-    <script src="wiki.js"></script>
+
+
+<script src="foursquare.js"></script>
+<script src="wiki.js"></script>
 
 
 <style>
@@ -19,12 +18,13 @@
  }
 </style>
 
-<script>
-    
-    //test country
-    var result_country = {name: 'Germany', lat:0, lng:0, city: ''};
 
-    // URL REST countries API
+
+<script> 
+//test country
+    var result_country = {name: 'Denmark', lat:0, lng:0, city: ''};
+
+// URL REST countries API
     // We need this to find the capital city of the country we find.
     // and also the latitude and longtitude for the google map
     // it needs to be here, so it loads before the other scripts.
@@ -59,33 +59,37 @@
     </script>
   </head>
   <body>
-      <div class="container">
-          <div class="row text-center">
-              <div class="col-xs-12">
-                  <img src="logo2.png" alt="HTML5 Icon" style="width:150px;height:90px;">
 
-              </div><!--/colxs 6-->
-          </div><!--/row1-->
-          
-          <div class="row">
-                <!-- col-sm-6 col-md-6 can add -->
-              <div class=" col-lg-6">
-                  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
-                      <div class="panel-heading" id="wiki_header"> 
-                          Here goes the city name
+         <div class="container">
+					  <div class="row text-center">
+               <div class="col-xs-12">
+								 <img src="logo2.png" alt="HTML5 Icon" style="width:150px;height:90px;">
+
+							 </div><!--/colxs 6-->
+            </div><!--/row1-->
+
+						<div class="row">
+							<!-- col-sm-6 col-md-6 can add -->
+							 <div class=" col-lg-6">
+								  <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
+                     <div class="panel-heading" id="wiki_header"> 
                      </div>
-                      <div id="wiki_box" class="panel-body" >
-						Here goes the wikipedia text	
-                      </div><!--panel body1-->
-                  </div><!-- /panel default -->
-              </div>
-              
-              <div class="col-lg-6">
-                  <div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">  
-                  </div><!-- /panel default -->
-              </div>
+										 <div id="wiki_box" class="panel-body" >
+								  
+                      <div class="panel-footer">Weather Information</div>
+							        </div><!--panel body1-->
+							     </div><!-- /panel default -->
+							 </div>
+							 <div class="col-lg-6">
+		
+								<div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">
+														
+											
+										
+							</div><!-- /panel default -->
+							
+            </div>
           </div><!--/row 2 boxes-->
-          
           <div class="row">
             <!-- col-sm-6 col-md-6 can add -->
              <div class=" col-lg-6">
@@ -93,13 +97,13 @@
                    <div class="panel-heading"> <h3>Reviews</h3>
                    </div>
                    <div id ="foursquare_box" class="panel-body">
-                       <button id="button" onclick="initMap()">Click me</button>
-                       <br>
-                       <ul id="list"></ul>
+<button id="button" onclick="initMap()">Click me</button>
+<br>
+                    <ul id="list"></ul>
+
                     </div><!--panel body1-->
                  </div><!-- /panel default -->
              </div>
-              
              <div class="col-lg-6">
                 <div class="panel panel-dfault">
                    <div id="picture_box" class="panel-body">
@@ -107,20 +111,131 @@
                         </div><!--/panel body3 -->
                       </div><!-- /panel3 for map-->
           </div>
-        
+        </div><!--/row 3 boxes-->
+          <div class="row">
+             <!-- col-sm-6 col-md-6 can add -->
+              <div class=" col-lg-6">
+                <div class="panel panel-default">
+                   <div class="panel-heading"> <h3>2</h3>
+                   </div>
+                   <div class="panel-body">
+                    <br>
+                    <p>South Africa</p><br>
+                    <p>2.South Africa is located at the southern tip of Africa. It is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Swaziland and Lesotho (which is completely surrounded by South Africa). It is a vast country with widely varying landscapes and has 11 official languages, as well as an equally diverse population. South Africa is renowned for its wines and is one of the world's largest producers of gold. South Africa has the strongest economy in Africa, and is an influential player in African politics.
+                    In 2010, South Africa hosted the first Football World Cup to be held on the African continent. </p>
+
+                    </div><!--panel body1-->
+                 </div><!-- /panel default -->
+             </div>
+             <div class="col-lg-6">
+                <div class="panel panel-dfault">
+                   <div class="panel-body">
+                          <img src="africa3.png" alt="..." class="img-thumbnail">
+                        </div><!--/panel body3 -->
+                      </div><!-- /panel3 for map-->
+           </div>
+         </div><!--/row 4 boxes-->
+          <div class="row">
+             <!-- col-sm-6 col-md-6 can add -->
+             <div class=" col-lg-6">
+               <div class="panel panel-default">
+                  <div class="panel-heading"> <h3>3</h3>
+                   </div>
+                 <div class="panel-body">
+                   <br>
+                   <p>South Africa</p><br>
+                   <p>2.South Africa is located at the southern tip of Africa. It is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Swaziland and Lesotho (which is completely surrounded by South Africa). It is a vast country with widely varying landscapes and has 11 official languages, as well as an equally diverse population. South Africa is renowned for its wines and is one of the world's largest producers of gold. South Africa has the strongest economy in Africa, and is an influential player in African politics.
+                    In 2010, South Africa hosted the first Football World Cup to be held on the African continent. </p>
+                  </div><!--panel body1-->
+              </div><!-- /panel default -->
+          </div>
+          <div class="col-lg-6">
+               <div class="panel panel-dfault">
+                  <div class="panel-body">
+                      <img src="africa3.png" alt="..." class="img-thumbnail">
+                  </div><!--/panel body3 -->
+                </div><!-- /panel3 for map-->
+           </div>
+        </div><!--/row 5 boxes-->
+        <div class="row">
+        <!-- col-sm-6 col-md-6 can add -->
+           <div class=" col-lg-6">
+               <div class="panel panel-default">
+             <div class="panel-heading"> <h3>4</h3>
+               </div>
+                 <div class="panel-body">
+                  <br>
+                 <p>South Africa</p><br>
+                 <p>2.South Africa is located at the southern tip of Africa. It is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Swaziland and Lesotho (which is completely surrounded by South Africa). It is a vast country with widely varying landscapes and has 11 official languages, as well as an equally diverse population. South Africa is renowned for its wines and is one of the world's largest producers of gold. South Africa has the strongest economy in Africa, and is an influential player in African politics.
+                  In 2010, South Africa hosted the first Football World Cup to be held on the African continent. </p>
+
+                 </div><!--panel body1-->
+             </div><!-- /panel default -->
+           </div>
+          <div class="col-lg-6">
+              <div class="panel panel-dfault">
+                 <div class="panel-body">
+                    <img src="africa3.png" alt="..." class="img-thumbnail">
+                  </div><!--/panel body3 -->
+                </div><!-- /panel3 for map-->
+           </div>
+         </div><!--/row 6 boxes-->
+         <div class="row">
+            <!-- col-sm-6 col-md-6 can add -->
+            <div class=" col-lg-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"> <h3>5</h3>
+                 </div>
+                 <div class="panel-body">
+                  <br>
+                    <p>South Africa</p><br>
+                    <p>2.South Africa is located at the southern tip of Africa. It is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Swaziland and Lesotho (which is completely surrounded by South Africa). It is a vast country with widely varying landscapes and has 11 official languages, as well as an equally diverse population. South Africa is renowned for its wines and is one of the world's largest producers of gold. South Africa has the strongest economy in Africa, and is an influential player in African politics.
+                     In 2010, South Africa hosted the first Football World Cup to be held on the African continent. </p>
+
+                  </div><!--panel body1-->
+               </div><!-- /panel default -->
+            </div>
+         <div class="col-lg-6">
+            <div class="panel panel-dfault">
+               <div class="panel-body">
+                  <img src="africa3.png" alt="..." class="img-thumbnail">
+               </div><!--/panel body3 -->
+            </div><!-- /panel3 for map-->
+           </div>
+         </div><!--/row 7 boxes-->
+         <div class="row">
+          <!-- col-sm-6 col-md-6 can add -->
+            <div class=" col-lg-6">
+             <div class="panel panel-default">
+              <div class="panel-heading"> <h3>6</h3>
+             </div>
+             <div class="panel-body">
+             <br>
+             <p>South Africa</p><br>
+              <p>2.South Africa is located at the southern tip of Africa. It is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Swaziland and Lesotho (which is completely surrounded by South Africa). It is a vast country with widely varying landscapes and has 11 official languages, as well as an equally diverse population. South Africa is renowned for its wines and is one of the world's largest producers of gold. South Africa has the strongest economy in Africa, and is an influential player in African politics.
+              In 2010, South Africa hosted the first Football World Cup to be held on the African continent. </p>
 
             </div><!--panel body1-->
          </div><!-- /panel default -->
       </div>
+         <div class="col-lg-6">
+           <div class="panel panel-dfault">
+             <div class="panel-body">
+                <img src="africa3.png" alt="..." class="img-thumbnail">
+              </div><!--/panel body3 -->
+             </div><!-- /panel3 for map-->
+         </div>
+        </div><!--/row 8 boxes-->
+
 
      </div><!--/container-->
 
-<div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
+           <div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
 
 
 
-<!-- Google needs id!
-AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
+    <!-- Google needs id!
+    AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
     
 <script> // Google API for the map. 
 // Needs to be here too, so it lopads properly.
@@ -136,7 +251,6 @@ AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
 </script> Google 2nd API script.
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap"
     async defer></script>
-
   </body>
 </html>
 
