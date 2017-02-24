@@ -110,16 +110,26 @@ let res = document.getElementById('foursquare_box');
                  </div><!-- /panel default -->
              </div>
              <div class="col-lg-6">
-                <div class="panel panel-dfault">
-                   <div id="weather_box" class="panel-body" >
+                <div class="panel panel-default">
+                    
+                    <div class="col-lg-12" style="float: left; margin: 0 auto;"><strong>The Weather today:</strong></div>
+                   <div id="weather_box" class="panel-body">
                        
-                       <div class="col-lg-4" id="weather" style="border-style: double;">1</div>
-                       <div class="col-lg-4" id="weather1" style="border-style: double;">2</div>
-                       <div class="col-lg-4" id="weather2" style="border-style: double;">2</div>
+                       <div class="col-lg-6" style=" border: 2px solid #FFF700;
+    border-radius: 5px; float: left; margin: 0 auto;">
+                           <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                           <div class="col-lg-6" id="weather1" style="padding:0px;  height:100%; float: left; margin: 0 auto;"></div>
+                       </div>
                        
-                        </div><!--/panel body3 -->
-                      </div><!-- /panel3 for map-->
-          </div>
+                       <div class="col-lg-6" id="weather1" style=" border: 2px solid #FFF700;
+    border-radius: 5px; float: left; margin: 0 auto;">
+                           <div class="col-lg-6" id="weather2" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                           <div class="col-lg-6" id="weather3" style="padding:0px; min-height:50px; float: left; margin: 0 auto;"></div>
+                       </div>
+            
+                    </div><!--/panel body3 -->
+                </div><!-- /panel3 for map-->
+            </div>
        
 
 

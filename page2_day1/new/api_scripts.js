@@ -114,7 +114,11 @@ document.getElementById("list").appendChild(node);
 
 
 				let svarx = document.getElementById('weather');
+                let svar1x = document.getElementById('weather1');
                 let svar2x = document.getElementById('weather2');
+                let svar3x = document.getElementById('weather3');
+            
+            
 				let urlx='http://api.openweathermap.org/data/2.5/weather?';
 
                 urlx += 'q=' + result_country.city +',uk&APPID=5d224fafcdf9102b03d9243837eb00d4'
@@ -139,10 +143,10 @@ document.getElementById("list").appendChild(node);
                             img.src=iconURL;
                             //document.body.appendChild(img);
                              
-                            svarx.innerHTML=`The weather is:  ${data.description}`;
-                            svarx.appendChild(img);
-                            svar2x.innerHTML= `The temperature is:  ${main.temp } F`;
-                           
+                            svarx.innerHTML=`<br>  ${data.description} `;
+                            svar1x.appendChild(img);
+                            svar2x.innerHTML= ` <br> Temperature: `;
+                            svar3x.innerHTML= ` <br> <strong> ${main.temp } F </strong>`;
                         }
 					else if( ajaxx.status != 200 ) {
 						
