@@ -45,22 +45,19 @@ window.addEventListener('load', function() {   // so shit loads and then runs.
                         
 						// AJAX success
 						let json = JSON.parse(ajax.responseText);
-                        console.log(ajax.responseText);
-                            console.log(json);
-                        
+                        console.log(json);
                         for (i = 0; i < json.response.venues.length; i++ ) {
                             
                         var node = document.createElement("LI"); 
                             
                         var textnode = document.createTextNode(json.response.venues[i].name +  " " );
                             
-var four_icon = (
-json.response.venues[i].categories['0'].icon.prefix +  
-json.response.venues[i].categories['0'].icon.suffix  
-)                     
-
-let image = document.createElement('img');
+//example icon:  https://ss0.4sqi.net/img/categories_v2/education/administrativebuilding_bg_32-a5eb7266e90733d01295939103fc97a9.png
                             
+var four_icon = (
+json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.response.venues[i].categories['0'].icon.suffix
+)                     
+let image = document.createElement('img');                    
 image.src = four_icon;
                             
 node.appendChild(textnode);
