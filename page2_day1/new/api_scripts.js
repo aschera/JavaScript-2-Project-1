@@ -208,7 +208,7 @@ document.getElementById("list").appendChild(node);
             url5 += 'key=' + '4655270-b812404bb89b76af66b5a7ba7';
                 
                 // Search query
-                url5 += '&q=' + result_country.city + '&image_type=photo' + '&category=travel'
+                url5 += '&q=' + result_country.city + '&image_type=photo' + '&category=travel' + '&orientation=horizontal'
                 
             console.log(url5);
             
