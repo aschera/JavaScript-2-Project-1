@@ -30,7 +30,7 @@ window.addEventListener('load', function() {   // so shit loads and then runs.
                 url += 'near=' + result_country.city + '&';
 
                 //what
-                let categoryId = 'food' + '&';
+                let categoryId = 'restaurant' + '&';
 				url += 'query=' + categoryId;
                 
                 //identification
@@ -49,7 +49,7 @@ window.addEventListener('load', function() {   // so shit loads and then runs.
                             
                         var node = document.createElement("LI"); 
                             
-                        var textnode = document.createTextNode(json.response.venues[i].name +  " " );
+                        var textnode = document.createTextNode(" " + json.response.venues[i].name +  " " );
                                                     
 var four_icon = (
 json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.response.venues[i].categories['0'].icon.suffix
@@ -57,8 +57,9 @@ json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.res
 let image = document.createElement('img');                    
 image.src = four_icon;
                             
+node.appendChild(image);                          
 node.appendChild(textnode);
-node.appendChild(image);
+
 document.getElementById("list").appendChild(node);     
                         }
                        
