@@ -49,7 +49,10 @@ window.addEventListener('load', function() {   // so shit loads and then runs.
                             
                         var node = document.createElement("LI"); 
                             
-                        var textnode = document.createTextNode(" " + json.response.venues[i].name +  " " );
+                        var textnode = document.createTextNode(" " + json.response.venues[i].name +  " ");
+                            
+                        var x = document.createTextNode('- ' + json.response.venues[i].location.address);
+                        var y = document.createTextNode('- ' + json.response.venues[i].url);
                                                     
 var four_icon = (
 json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.response.venues[i].categories['0'].icon.suffix
@@ -57,9 +60,15 @@ json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.res
 let image = document.createElement('img');                    
 image.src = four_icon;
                             
+let link = document.createElement('link');  
+link.href = json.response.venues[i].url;
+
+                            
 node.appendChild(image);                          
 node.appendChild(textnode);
-
+node.appendChild(x);
+node.appendChild(link);
+                            
 document.getElementById("list").appendChild(node);     
                         }
                        
