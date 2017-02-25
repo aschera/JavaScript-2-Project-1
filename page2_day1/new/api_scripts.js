@@ -1,8 +1,7 @@
 
 
 
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //foursquare needs id!
     //client id:RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W
     // client secret: U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X
@@ -51,9 +50,7 @@ window.addEventListener('load', function() {   // so shit loads and then runs.
                         var node = document.createElement("LI"); 
                             
                         var textnode = document.createTextNode(json.response.venues[i].name +  " " );
-                            
-//example icon:  https://ss0.4sqi.net/img/categories_v2/education/administrativebuilding_bg_32-a5eb7266e90733d01295939103fc97a9.png
-                            
+                                                    
 var four_icon = (
 json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.response.venues[i].categories['0'].icon.suffix
 )                     
@@ -72,6 +69,8 @@ document.getElementById("list").appendChild(node);
 				};
 				ajax.send();
             
+            
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // URL REST countries API
 // We need this to find the capital city of the country we find.
 // and also the latitude and longtitude for the google map
@@ -104,8 +103,7 @@ document.getElementById("list").appendChild(node);
 				ajax2.send();  
             
             
-            
-// URL Weather API
+//////////////////////////////////////////////////////////////////////////////////////////////////////////  // URL Weather API
 //WU-935842
 // key openweather 5d224fafcdf9102b03d9243837eb00d4
 
@@ -128,14 +126,13 @@ document.getElementById("list").appendChild(node);
 
                        if(ajaxx.status==200 && ajaxx.readyState==4){
 
-                             console.log(ajaxx.responseText);
                             var object=JSON.parse(ajaxx.responseText);
                             var data = object.weather[0];
                             var main= object.main;
-                           console.log("Object:"+object.main.temp);
+  
                             var weatherIcon = data.icon;
                             var iconURL = 'http://www.openweathermap.org/img/w/'+weatherIcon+'.png';
-                            console.log(iconURL);
+
                             let img = document.createElement('img');
                             img.src=iconURL;
                             //document.body.appendChild(img);
@@ -151,8 +148,7 @@ document.getElementById("list").appendChild(node);
 				};
                 ajaxx.send(); 
             
-            
-// URL WIKI API        
+/////////////////////////////////////////////////////////////////////////////////////////////////////////// // URL WIKI API        
 // wiki CLIENT ID : 1a4d5d1c55ad48baa5b9283de528ada8
 
     // DOM-element to display results in.
@@ -194,6 +190,52 @@ document.getElementById("list").appendChild(node);
 				};
 				ajax3.send();
       
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Pixabay Photo API
+// needs key: 4655270-b812404bb89b76af66b5a7ba7
+
+
+				// DOM-element to display results in.
+				
+                let pics = document.getElementById('pic1');
+                		
+			
+// URL Pixabay
+				let url5 = 'https://pixabay.com/api/?';
+                
+                // ID
+                url5 += 'key=' + '4655270-b812404bb89b76af66b5a7ba7';
+                
+                // Search query
+                url5 += 'q=' + result_country.city + '&order=popular' + '&min_width=600';
+                
+            console.log(url5);
+            
+				// AJAX request Pixabay
+				let ajax5 = new XMLHttpRequest();
+				ajax5.open('get', url5);
+				ajax5.onreadystatechange = function() {
+					if( ajax5.status == 200 && ajax5.readyState == 4 ) {
+                        
+						// AJAX success
+						let json5 = JSON.parse(ajax5.responseText);
+                            for (i = 0; i < json5.hits.length; i++ ) {
+
+                                var data1 = json5.hits[i];
+                                let img5 = document.createElement('img');
+
+                                img5.src = data1.userImageURL;
+                                pics.appendChild(img5); 
+
+                            }
+                        
+                        }
+					else if( ajax5.status != 200 ) {
+						pic.innerHTML = 'Error';
+					}
+				
+                };
+                ajax5.send(); 
             
 }); // end eventlistener
 }) // end loader function
