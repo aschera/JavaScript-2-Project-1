@@ -202,12 +202,13 @@ document.getElementById("list").appendChild(node);
 			
 // URL Pixabay
 				let url5 = 'https://pixabay.com/api/?';
+
                 
-                // ID
-                url5 += 'key=' + '4655270-b812404bb89b76af66b5a7ba7';
+            // ID
+            url5 += 'key=' + '4655270-b812404bb89b76af66b5a7ba7';
                 
                 // Search query
-                url5 += 'q=' + result_country.city + '&order=popular' + '&min_width=600';
+                url5 += '&q=' + result_country.city + '&image_type=photo' + '&category=travel'
                 
             console.log(url5);
             
@@ -219,12 +220,13 @@ document.getElementById("list").appendChild(node);
                         
 						// AJAX success
 						let json5 = JSON.parse(ajax5.responseText);
+                        console.log( json5);
                             for (i = 0; i < json5.hits.length; i++ ) {
 
                                 var data1 = json5.hits[i];
                                 let img5 = document.createElement('img');
 
-                                img5.src = data1.userImageURL;
+                                img5.src = data1.webformatURL;
                                 pics.appendChild(img5); 
 
                             }
