@@ -118,6 +118,9 @@ document.getElementById("list").appendChild(node);
 // key openweather 5d224fafcdf9102b03d9243837eb00d4
 
 
+
+
+
 				let svarx = document.getElementById('weather');
                 let svar1x = document.getElementById('weather1');
                 let svar2x = document.getElementById('weather2');
@@ -126,7 +129,7 @@ document.getElementById("list").appendChild(node);
             
 				let urlx='http://api.openweathermap.org/data/2.5/weather?';
 
-                urlx += 'q=' + result_country.city +',uk&APPID=5d224fafcdf9102b03d9243837eb00d4'
+                urlx += 'q=' + result_country.city +',uk&APPID=5d224fafcdf9102b03d9243837eb00d4' + '&units=metric'
 
 				//AJAX request
                 let ajaxx = new XMLHttpRequest();
@@ -139,7 +142,8 @@ document.getElementById("list").appendChild(node);
                             var object=JSON.parse(ajaxx.responseText);
                             var data = object.weather[0];
                             var main= object.main;
-  
+                          
+                           
                             var weatherIcon = data.icon;
                             var iconURL = 'http://www.openweathermap.org/img/w/'+weatherIcon+'.png';
 
@@ -150,7 +154,7 @@ document.getElementById("list").appendChild(node);
                             svarx.innerHTML=`<br>  ${data.description} `;
                             svar1x.appendChild(img);
                             svar2x.innerHTML= ` <br> Temperature: `;
-                            svar3x.innerHTML= ` <br> <strong> ${main.temp } F </strong>`;
+                            svar3x.innerHTML= ` <br> <strong> ${main.temp } C </strong>`;
                         }
 					else if( ajaxx.status != 200 ) {
 						
