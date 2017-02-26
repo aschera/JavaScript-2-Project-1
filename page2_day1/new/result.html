@@ -1,185 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1"
-	  <title>Pick</title>
-	<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     
-    #pic1 > img {margin: 2px; padding: 2px; width: 250px; height: 200px}
-    ul {list-style-type: none;}
-    li{margin: 10px 0;}
+    <title>Pick</title>
     
-</style>
-<script src="api_scripts.js"></script>
-    
-<script> 
-//test country
-    var result_country = {name: 'Denmark', lat:0, lng:0, city: ''};
-</script>
-    
-<script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        html,
+        body {
+            background-color: rgb(40, 30, 30);
+            color: black;
+        }
+        #pic1>img {
+            margin: 2px;
+            padding: 2px;
+            width: 250px;
+            height: 200px
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+    </style>
  
-let button = document.getElementById('button');
-let res = document.getElementById('foursquare_box');
+    <script src="api_scripts.js"></script>
 
-            
-// URL REST countries API
-// We need this to find the capital city of the country we find.
-// and also the latitude and longtitude for the google map
+    <script>
+        //test country
+        var result_country = {
+            name: 'Denmark',
+            lat: 0,
+            lng: 0,
+            city: ''
+        };
+    </script>
 
-				let url2 = 'https://restcountries.eu/rest/v1/name/';
-                
-                // where?
-                url2 += result_country.name;
-                
-				// AJAX request REST countries
-				let ajax2 = new XMLHttpRequest();
-				ajax2.open('get', url2);
-				ajax2.onreadystatechange = function() {
-					if( ajax2.status == 200 && ajax2.readyState == 4 ) {
-                        
-                        let json2 = JSON.parse(ajax2.responseText);
-                            
-                        // City
-                        result_country.city = json2[0].capital;
-                        
-                        // lat/lng
-                        result_country.lat = json2[0].latlng[0];
-                        result_country.lng = json2[0].latlng[1];
-
-					}
-					else if( ajax2.status != 200 ) {
-						
-					}
-				};
-				ajax2.send();  
+    <script>
+        let button = document.getElementById('button');
+        let res = document.getElementById('foursquare_box');
 
 
-</script>
-    
-<style>
- html, body{
-		 background-color:rgb(40,30,30);
-		 color: black;
- }
-</style>
- 
-  </head>
-  <body>
+        // URL REST countries API
+        // We need this to find the capital city of the country we find.
+        // and also the latitude and longtitude for the google map
 
-         <div class="container">
-			<!--/row1-->
+        let url2 = 'https://restcountries.eu/rest/v1/name/';
 
-						<div class="row">
-							<!-- col-sm-6 col-md-6 can add -->
-							 <div class=" col-lg-6">
-								  <div class="panel panel-default" style="overflow-y: scroll; height:400px; border: 2px solid #FFF700;">
-                     <div class="panel-heading" id="wiki_header"> 
+        // where?
+        url2 += result_country.name;
 
-                     </div>
-										 <div id="wiki_box" class="panel-body" >
-								  
-                      
-							        </div><!--panel body1-->
-							     </div><!-- /panel default -->
-							 </div>
-							 <div class="col-lg-6"> <!-- MAP -->
-		                      <div class="panel panel-default" style=" border: 2px solid #FFF700;">
-								<div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">		
-                                  </div>
-                              </div>
-							
-            </div>
-          </div><!--/row 2 boxes-->
-          <div class="row">
+        // AJAX request REST countries
+        let ajax2 = new XMLHttpRequest();
+        ajax2.open('get', url2);
+        ajax2.onreadystatechange = function() {
+            if (ajax2.status == 200 && ajax2.readyState == 4) {
+
+                let json2 = JSON.parse(ajax2.responseText);
+
+                // City
+                result_country.city = json2[0].capital;
+
+                // lat/lng
+                result_country.lat = json2[0].latlng[0];
+                result_country.lng = json2[0].latlng[1];
+
+            } else if (ajax2.status != 200) {
+
+            }
+        };
+        ajax2.send();
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!--/row1-->
+
+        <div class="row">
             <!-- col-sm-6 col-md-6 can add -->
-             <div class=" col-lg-6">
-                <div class="panel panel-default" style=" border: 2px solid #FFF700;">
-                   <div class="panel-heading"> <h3>Restaurants</h3>
-                   </div>
-                   <div id ="foursquare_box" class="panel-body"> <!-- FOURSQUARE -->
-<button id="button" onclick="initMap()">Click me</button>
-<br>
-                    <ul id="list"></ul>
+            <div class=" col-lg-6">
+                <div class="panel panel-default" style="overflow-y: scroll; height:400px; border: 2px solid #FFF700;">
+                    <div class="panel-heading" id="wiki_header">
 
-                    </div><!--panel body1-->
-                 </div><!-- /panel default -->
-             </div>
-              
-              
-             <div class="col-lg-6">
-                <div class="panel panel-default" style=" border: 2px solid #FFF700;">
-                    
-                    <div class="panel-heading"> <h3>Weather</h3>
-                   </div>
-                   <div id="weather_box" class="panel-body" > <!-- WEATHER -->
-                       
-                       <div class="col-lg-6" style=" border: 2px solid #FFF700;
-    border-radius: 5px; float: left; margin: 0 auto;">
-                           
-                           <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
-                           <div class="col-lg-6" id="weather1" style="padding:0px;  height:100%; float: left; margin: 0 auto;"></div>
-                       </div>
-                       
-                       <div class="col-lg-6" id="weather1" style=" border: 2px solid #FFF700;
-    border-radius: 5px; float: left; margin: 0 auto;">
-                           <div class="col-lg-6" id="weather2" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
-                           <div class="col-lg-6" id="weather3" style="padding:0px; min-height:50px; float: left; margin: 0 auto;"></div>
-                       </div>
-            
-                    </div><!--/panel body3 -->
-                     <div class="col-lg-12" style="float: left; margin: 0 auto;">
-                        
                     </div>
-                    
-                </div><!-- /panel3 for map-->
+                    <div id="wiki_box" class="panel-body">
+
+
+                    </div>
+                    <!--panel body1-->
+                </div>
+                <!-- /panel default -->
             </div>
-              
-              
-              <div class="col-lg-6">
+            <div class="col-lg-6">
+                <!-- MAP -->
                 <div class="panel panel-default" style=" border: 2px solid #FFF700;">
-                    
-                    <div class="panel-heading"> <h3>Pictures</h3>
-                   </div>
-     <div id="picture_box" class="panel-body" > <!-- PHOTOS -->
-                       
-                       <div id="pic1" style=" border: 2px solid #FFF700;">
-                           
-                       </div>
-            
-                    </div><!--/panel body3 -->
-                </div><!-- /panel3 for map-->
-              </div>
-       
+                    <div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--/row 2 boxes-->
+        <div class="row">
+            <!-- col-sm-6 col-md-6 can add -->
+            <div class=" col-lg-6">
+                <div class="panel panel-default" style=" border: 2px solid #FFF700;">
+                    <div class="panel-heading">
+                        <h3>Restaurants</h3>
+                    </div>
+                    <div id="foursquare_box" class="panel-body">
+                        <!-- FOURSQUARE -->
+                        <button id="button" onclick="initMap()">Click me</button>
+                        <br>
+                        <ul id="list"></ul>
+
+                    </div>
+                    <!--panel body1-->
+                </div>
+                <!-- /panel default -->
+            </div>
 
 
-     </div><!--/container-->
+            <div class="col-lg-6">
+                <div class="panel panel-default" style=" border: 2px solid #FFF700;">
 
-           <div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
+                    <div class="panel-heading">
+                        <h3>Weather</h3>
+                    </div>
+                    <div id="weather_box" class="panel-body">
+                        <!-- WEATHER -->
+
+                        <div class="col-lg-6" style=" border: 2px solid #FFF700;
+    border-radius: 5px; float: left; margin: 0 auto;">
+
+                            <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                            <div class="col-lg-6" id="weather1" style="padding:0px;  height:100%; float: left; margin: 0 auto;"></div>
+                        </div>
+
+                        <div class="col-lg-6" style=" border: 2px solid #FFF700;
+    border-radius: 5px; float: left; margin: 0 auto;">
+                            <div class="col-lg-6" id="weather2" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                            <div class="col-lg-6" id="weather3" style="padding:0px; min-height:50px; float: left; margin: 0 auto;"></div>
+                        </div>
+
+                    </div>
+                    <!--/panel body3 -->
+                    <div class="col-lg-12" style="float: left; margin: 0 auto;">
+
+                    </div>
+
+                </div>
+                <!-- /panel3 for map-->
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="panel panel-default" style=" border: 2px solid #FFF700;">
+
+                    <div class="panel-heading">
+                        <h3>Pictures</h3>
+                    </div>
+                    <div id="picture_box" class="panel-body">
+                        <!-- PHOTOS -->
+
+                        <div id="pic1" style=" border: 2px solid #FFF700;">
+
+                        </div>
+
+                    </div>
+                    <!--/panel body3 -->
+                </div>
+                <!-- /panel3 for map-->
+            </div>
 
 
 
-    <!-- Google needs id!
+        </div>
+        <!--/container-->
+
+        <div> <a href="" style="color:white ;font-weight:bold ; padding: 50px; ">Contact us </a></div>
+
+    </div> <!-- END container -->
+
+        <!-- Google needs id!
     AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
-    
-<script> // Google API for the map. 
-// Needs to be here too, so it lopads properly.
-    
-      function initMap() {
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById("map_box"), {
-          center: {lat: result_country.lat, lng: result_country.lng},
-          scrollwheel: false,
-          zoom: 8
-        });
-      }
-</script> Google 2nd API script.
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap"
-    async defer></script>
-  </body>
+
+        <script>
+            // Google API for the map. 
+            // Needs to be here too, so it lopads properly.
+
+            function initMap() {
+                // Create a map object and specify the DOM element for display.
+                var map = new google.maps.Map(document.getElementById("map_box"), {
+                    center: {
+                        lat: result_country.lat,
+                        lng: result_country.lng
+                    },
+                    scrollwheel: false,
+                    zoom: 8
+                });
+            }
+        </script> Google 2nd API script.
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap" async defer></script>
+</body>
+
 </html>
-
-
