@@ -164,7 +164,13 @@ function everythingElse() {
         let wikihead = document.getElementById('wiki_header');
 
         let url3 = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=';
-        //https://en.wikipedia.org/w/api.php?action=opensearch&format=jsonfm&search=';
+        
+//https://en.wikipedia.org/w/api.php?action=query
+//&titles=Vilnius&
+//&prop=revisions
+//&rvprop=content
+//&format=jsonfm
+//&1a4d5d1c55ad48baa5b9283de528ada8
 
         //city
         url3 += result_country.city + '&';
@@ -184,8 +190,9 @@ function everythingElse() {
                 // AJAX success
                 var data_array = ajax3.responseText.replace(/[u02\\`~@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
                 var splitted = data_array.split(',');
-                var text = splitted.slice(7,100);
+                var text = splitted.slice(1,100);
                 wiki.innerHTML = '<p>' + text + '</p><p>';
+                console.log(url3)
             }
             else if( ajax3.status != 200 ) {
                 console.log('error');
