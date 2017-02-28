@@ -191,7 +191,7 @@ document.getElementById("list").appendChild(node);
 					if( ajax3.status == 200 && ajax3.readyState == 4 ) {
                         
 						// AJAX success
-						var data_array = ajax3.responseText.replace(/[u02\\`~@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
+						var data_array = ajax3.responseText.replace(/(\n\/)/g, '');
 						var splitted = data_array.split(',');
 						var text = splitted.slice(7,100);
 					

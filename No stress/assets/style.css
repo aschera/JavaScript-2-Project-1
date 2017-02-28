@@ -127,8 +127,12 @@ li {
 }
 
 
-
-
+p {
+    font-size: 1em;
+}
+.small {font-size: 1em;}
+.sub {font-size: 1em;}
+.sup {font-size: 1em;}
 
 .resultBG {
 	background-image:url('images/a.png');

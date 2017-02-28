@@ -185,14 +185,11 @@ function everythingElse() {
                 var object2=JSON.parse(ajax3.responseText);
                 
                 var another = JSON.stringify(object2.query.pages);
-                another = another.replace(/^\s+|\s+$/g, '');
-                
-                
+     
                 var n = another.indexOf('extract":"');
                 another = another.substring((n+10), (another.length-15));
-
-                
-                wiki.innerHTML = another;
+         
+                wiki.innerHTML = '<p style="font-size:1em">' + another + '</p>';
                 
             }
             else if( ajax3.status != 200 ) {
