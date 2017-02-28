@@ -163,21 +163,15 @@ function everythingElse() {
         let wiki = document.getElementById('wiki_box');
         let wikihead = document.getElementById('wiki_header');
 
-        let url3 = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=';
-        
-//https://en.wikipedia.org/w/api.php?action=query
-//&titles=Vilnius&
-//&prop=revisions
-//&rvprop=content
-//&format=jsonfm
-//&1a4d5d1c55ad48baa5b9283de528ada8
+        let url3 = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=';
+
 
         //city
-        url3 += result_country.city + '&';
+        url3 += result_country.city;
                 
         //rest
-        url3 += 'format=json&origin=*';
-
+        url3 += '&format=json&exintro=1&origin=*';
+        
                 
         //identification
         //url3 += '1a4d5d1c55ad48baa5b9283de528ada8';
@@ -188,11 +182,18 @@ function everythingElse() {
         ajax3.onreadystatechange = function() {
             if( ajax3.status == 200 && ajax3.readyState == 4 ) {  
                 // AJAX success
-                var data_array = ajax3.responseText.replace(/[u02\\`~@#$%^&*()_|+\-=?;:'"<>\{\}\[\]\\\/]/gi, '');
-                var splitted = data_array.split(',');
-                var text = splitted.slice(1,100);
-                wiki.innerHTML = '<p>' + text + '</p><p>';
-                console.log(url3)
+                var object2=JSON.parse(ajax3.responseText);
+                
+                var another = JSON.stringify(object2.query.pages);
+                
+                var n = another.indexOf('extract":"');
+                another = another.substring((n+10), another.length);
+                
+                wiki.innerHTML = another;
+                
+                console.log(ajax3.responseText);
+                console.log(object2);
+                
             }
             else if( ajax3.status != 200 ) {
                 console.log('error');
