@@ -7,7 +7,7 @@ html, body {
 
 /* --- | Question div superblock | ---  */
 #questions {
-	top:50px;
+	top:20px;
 	height:550px;
 	overflow:hidden;
 	position:relative;}
