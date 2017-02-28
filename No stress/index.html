@@ -1,192 +1,210 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Function</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Pick | The quiz to know where you should go</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/style.css"/>
-    <script src="assets/api_scripts.js"></script>
-</head>
-<body>
-<div id="quiz-page">
-    <div class="container pick bg-dark font-light">
-        <div class="row text-center">
-            <img src="assets/images/logo.png" alt="Pick | The quiz to know where you should go" class="logo" />
-            <br><h2><span class="header-size-aligner">The quiz to know</span> </br>where you should go</h2>
-        </div>
-    </div>
-    <div class="container text-center height-justifier">
-        <div class="row" id="questions">
-            <h2 class="bg-dark font-light quiz-header">
-                <span id="currentInfoHeader" class="description-size-aligner">Choose what you like better:</span>
-                <br/><span id="currentInfo">Inland or Island?</span>
-            </h2>
-            <div id="question1" class="question is-paused">
-                <div class="col-xs-6" id="q1a"><img src="assets/images/question-1-a.png" alt="question-a" onclick="nextQuestion(userinput[0].island,true); this.onclick=null;" width="100% no-repeat center center fixed" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-1-b.png" alt="question-b" onclick="nextQuestion(userinput[0].island,false); this.onclick=null;" width="100% no-repeat center center fixed" /></div>
-            </div>
-            <div id="question2" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-2-a.png" alt="question-a" onclick="nextQuestion(userinput[0].excitement,'Attractions'); this.onclick=null;" width="100% no-repeat center center fixed" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-2-b.png" alt="question-b" onclick="nextQuestion(userinput[0].excitement,'Wonders'); this.onclick=null;" width="100% no-repeat center center fixed" /></div>
-            </div>
-            <div id="question3" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-3-a.png" alt="question-a" onclick="nextQuestion(userinput[0].safe,true); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-3-b.png" alt="question-b" onclick="nextQuestion(userinput[0].safe,false); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question4" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-4-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_animals,true); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-4-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_animals,false); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question5" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-5-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_diseases,true); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-5-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_diseases,false); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question6" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-6-a.png" alt="question-a" onclick="nextQuestion(userinput[0].size,'Large'); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-6-b.png" alt="question-b" onclick="nextQuestion(userinput[0].size,'Small'); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question7" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-7-a.png" alt="question-a" onclick="nextQuestion(userinput[0].temp,'Cold'); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-7-b.png" alt="question-b" onclick="nextQuestion(userinput[0].temp,'Hot'); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question8" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-9-a.png" alt="question-a" onclick="nextQuestion(userinput[0].pop_density,'Dense'); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-9-b.png" alt="question-b" onclick="nextQuestion(userinput[0].pop_density,'Scarce'); this.onclick=null;" width="100%" /></div>
-            </div>
-            <div id="question9" class="question is-paused">
-                <div class="col-xs-6"><img src="assets/images/question-8-a.png" alt="question-a" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" width="100%" /></div>
-                <div class="col-xs-6"><img src="assets/images/question-8-b.png" alt="question-b" onclick="nextQuestion(userinput[0].natural_disasters,false); this.onclick=null;" width="100%" /></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="result-page">
-
-    <div class="container">
-        <!--/row1-->
-        <div class="row">
-            <!-- col-sm-6 col-md-6 can add -->
-            <div class="col-lg-12 pick">
-                <div class="panel panel-default resultBG text-center">
-                        
-                    <div class="shader">
-                        <h2 id="resultHeader" class="font-light"></h2>
-                        <span id="resultResult"></span>
-                    </div>                    
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>
+            Pick | The quiz to know where you should go
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="assets/style.css" type="text/css" />
+        <script src="assets/api_scripts.js" type="text/javascript">
+</script>
+    </head>
+    <body>
+        <div id="quiz-page">
+            <div class="container pick bg-dark font-light">
+                <div class="row text-center">
+                    <img src="assets/images/logo.png" alt="Pick | The quiz to know where you should go" class="logo" /><br />
+                    <h2>
+                        <span class="header-size-aligner">The quiz to know</span><br />
+                        where you should go
+                    </h2>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Pictures</h3>
-                    </div>
-                    <div id="picture_box" class="panel-body text-center">
-                        <!-- PHOTOS -->
-                        <div id="pic1">
-
+            <div class="container text-center height-justifier">
+                <div class="row" id="questions">
+                    <h2 class="bg-dark font-light quiz-header">
+                        <span id="currentInfoHeader" class="description-size-aligner">Choose what you like better:</span><br />
+                        <span id="currentInfo">Inland or Island?</span>
+                    </h2>
+                    <div id="question1" class="question is-paused">
+                        <div class="col-xs-6" id="q1a">
+                            <img src="assets/images/question-1-a.png" alt="question-a" onclick="nextQuestion(userinput[0].island,true); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-1-b.png" alt="question-b" onclick="nextQuestion(userinput[0].island,false); this.onclick=null;" />
                         </div>
                     </div>
-                    <!--/panel body3 -->
-                </div>
-                <!-- /panel3 for map-->
-            </div>
-            <div class=" col-lg-6">
-                <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
-                    <div class="panel-heading" id="wiki_header">
-                            <h3>Information</h3>
+                    <div id="question2" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-2-a.png" alt="question-a" onclick="nextQuestion(userinput[0].excitement,'Attractions'); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-2-b.png" alt="question-b" onclick="nextQuestion(userinput[0].excitement,'Wonders'); this.onclick=null;" />
+                        </div>
                     </div>
-                    <div id="wiki_box" class="panel-body">
-
+                    <div id="question3" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-3-a.png" alt="question-a" onclick="nextQuestion(userinput[0].safe,true); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-3-b.png" alt="question-b" onclick="nextQuestion(userinput[0].safe,false); this.onclick=null;" />
+                        </div>
                     </div>
-                    <!--panel body1-->
-                </div>
-                <!-- /panel default -->
-            </div>
-            <div class="col-lg-6">
-                <!-- MAP -->
-                <div class="panel panel-default">
-                    <div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;">
+                    <div id="question4" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-4-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_animals,true); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-4-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_animals,false); this.onclick=null;" />
+                        </div>
+                    </div>
+                    <div id="question5" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-5-a.png" alt="question-a" onclick="nextQuestion(userinput[0].dangerous_diseases,true); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-5-b.png" alt="question-b" onclick="nextQuestion(userinput[0].dangerous_diseases,false); this.onclick=null;" />
+                        </div>
+                    </div>
+                    <div id="question6" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-6-a.png" alt="question-a" onclick="nextQuestion(userinput[0].size,'Large'); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-6-b.png" alt="question-b" onclick="nextQuestion(userinput[0].size,'Small'); this.onclick=null;" />
+                        </div>
+                    </div>
+                    <div id="question7" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-7-a.png" alt="question-a" onclick="nextQuestion(userinput[0].temp,'Cold'); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-7-b.png" alt="question-b" onclick="nextQuestion(userinput[0].temp,'Hot'); this.onclick=null;" />
+                        </div>
+                    </div>
+                    <div id="question8" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-9-a.png" alt="question-a" onclick="nextQuestion(userinput[0].pop_density,'Dense'); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-9-b.png" alt="question-b" onclick="nextQuestion(userinput[0].pop_density,'Scarce'); this.onclick=null;" />
+                        </div>
+                    </div>
+                    <div id="question9" class="question is-paused">
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-8-a.png" alt="question-a" onclick="nextQuestion(userinput[0].natural_disasters,true); this.onclick=null;" />
+                        </div>
+                        <div class="col-xs-6">
+                            <img src="assets/images/question-8-b.png" alt="question-b" onclick="nextQuestion(userinput[0].natural_disasters,false); this.onclick=null;" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/row 2 boxes-->
-        <div class="row">
-            <!-- col-sm-6 col-md-6 can add -->
-            <div class=" col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Restaurants</h3>
-                    </div>
-                    <div id="foursquare_box" class="panel-body">
-                        <!-- FOURSQUARE -->
-                        <ul id="list"></ul>
-                    </div>
-                    <!--panel body1-->
-                </div>
-                <!-- /panel default -->
-            </div>
-            <div class="col-lg-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Weather</h3>
-                    </div>
-                    <div id="weather_box" class="panel-body">
-                        <!-- WEATHER -->
-                        <div class="col-lg-6" style="float: left; margin: 0 auto;">
-                            <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
-                            <div class="col-lg-6" id="weather1" style="padding:0px;  height:100%; float: left; margin: 0 auto;"></div>
+        <div id="result-page">
+            <div class="container">
+                <!--/row1-->
+                <div class="row">
+                    <!-- col-sm-6 col-md-6 can add -->
+                    <div class="col-lg-12 pick">
+                        <div class="panel panel-default resultBG text-center">
+                            <div class="shader">
+                                <h2 id="resultHeader" class="font-light">
+                                    0
+                                </h2><span id="resultResult"></span>
+                            </div>
                         </div>
-                        <div class="col-lg-6" style="float: left; margin: 0 auto;">
-                            <div class="col-lg-6" id="weather2" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
-                            <div class="col-lg-6" id="weather3" style="padding:0px; min-height:50px; float: left; margin: 0 auto;"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>
+                                    Pictures
+                                </h3>
+                            </div>
+                            <div id="picture_box" class="panel-body text-center">
+                                <!-- PHOTOS -->
+                                <div id="pic1"></div>
+                            </div><!--/panel body3 -->
+                        </div><!-- /panel3 for map-->
+                    </div>
+                    <div class=" col-lg-6">
+                        <div class="panel panel-default" style="overflow-y: scroll; height:400px;">
+                            <div class="panel-heading" id="wiki_header">
+                                <h3>
+                                    Information
+                                </h3>
+                            </div>
+                            <div id="wiki_box" class="panel-body"></div><!--panel body1-->
+                        </div><!-- /panel default -->
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- MAP -->
+                        <div class="panel panel-default">
+                            <div id="map_box" class="panel-body" style="min-width:50%, max-width:100%;height:400px;"></div>
                         </div>
-
                     </div>
-                    <!--/panel body3 -->
-                    <div class="col-lg-12" style="float: left; margin: 0 auto;">
-
+                </div><!--/row 2 boxes-->
+                <div class="row">
+                    <!-- col-sm-6 col-md-6 can add -->
+                    <div class=" col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>
+                                    Restaurants
+                                </h3>
+                            </div>
+                            <div id="foursquare_box" class="panel-body">
+                                <!-- FOURSQUARE -->
+                                <ul id="list"></ul>
+                            </div><!--panel body1-->
+                        </div><!-- /panel default -->
                     </div>
-                </div>
-                <!-- /panel3 for map-->
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>
+                                    Weather
+                                </h3>
+                            </div>
+                            <div id="weather_box" class="panel-body">
+                                <!-- WEATHER -->
+                                <div class="col-lg-6" style="float: left; margin: 0 auto;">
+                                    <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                                    <div class="col-lg-6" id="weather1" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                                </div>
+                                <div class="col-lg-6" style="float: left; margin: 0 auto;">
+                                    <div class="col-lg-6" id="weather2" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
+                                    <div class="col-lg-6" id="weather3" style="padding:0px; min-height:50px; float: left; margin: 0 auto;"></div>
+                                </div>
+                            </div><!--/panel body3 -->
+                            <div class="col-lg-12" style="float: left; margin: 0 auto;"></div>
+                        </div><!-- /panel3 for map-->
+                    </div>
+                </div><!--/container-->
+                <!-- Google needs id! AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
             </div>
-        </div>
-        <!--/container-->
-        <!-- Google needs id! AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
-</div>
+        </div><script type="text/javascript">
+//
 
-
-<script>
-
-function createMap(latitude, longitude) {
-    var map = new google.maps.Map(document.getElementById("map_box"), {
-    center: {
+        function createMap(latitude, longitude) {
+        var map = new google.maps.Map(document.getElementById("map_box"), {
+        center: {
         lat:latitude,
         lng:longitude
-    },
-    scrollwheel: false,
-    zoom: 8
-});
-}
+        },
+        scrollwheel: false,
+        zoom: 8
+        });
+        }
+        //]]>
+        </script><script type="text/javascript" src="assets/pre_api.js">
+</script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&amp;callback=initMap" async="" defer="defer" type="text/javascript">
 </script>
-
-
-<script 
-    type="text/javascript" 
-    src="assets/pre_api.js">
-</script>
-
-<script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&callback=initMap" 
-    async defer>
-</script>
-
-
-</body>
+    </body>
 </html>
-
