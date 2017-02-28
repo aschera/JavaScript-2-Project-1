@@ -76,7 +76,7 @@ html, body {
 #currentInfo {
 	font-size:1em;
 	color:yellow;}
-
+#currentInfoHeader {font-size:1.3em;}
 /* --- | Logo | ---  */
 .logo {
 	margin-top:20px;
