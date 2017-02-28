@@ -27,7 +27,8 @@ html, body {
 	max-height:300px;
     min-width:100%;
     max-width:505px;
-	transition:0.15s ease;}
+	transition:0.15s ease;
+    border: 2px solid #FFF700;}
 #questions .question div img:hover {
 	cursor:pointer;
 	transform:scale(1.02);
