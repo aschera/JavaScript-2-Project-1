@@ -162,28 +162,35 @@ function everythingElse() {
                         console.log('test here');
 
                         let link = document.createElement('a');
-
-                        var linkText=document.createTextNode("my title text");
+			// <a href="" title="" role="" class=""> TEXT</a><
+                        var linkText=document.createTextNode("LINK");
 
                         link.appendChild(linkText);
 
-                        link.title="my title text";
+                        link.title="LINK";
+			link.target = "_blank";
+			
 
                         link.href= json.response.venues[i].url;
+			
+ 			node.appendChild(image);                          
 
-                       
+                    	node.appendChild(textnode);
 
-                      node.appendChild(link);
+                    	node.appendChild(x);
+                      	node.appendChild(link);
 
-                    };
+                    }else {
+			 node.appendChild(image);                          
+
+                    	node.appendChild(textnode);
+
+                    	node.appendChild(x);
+			};
 
                     
-
-                    node.appendChild(image);                          
-
-                    node.appendChild(textnode);
-
-                    node.appendChild(x);
+		
+                   
 
                    
 
