@@ -180,8 +180,10 @@ function everythingElse() {
             if( ajax3.status == 200 && ajax3.readyState == 4 ) {  
                 // AJAX success
                 var object2=JSON.parse(ajax3.responseText);
-                
+  
                 var another = JSON.stringify(object2.query.pages);
+                
+                another  = another.replace(/\n+/, "");
      
                 var n = another.indexOf('extract":"');
                 another = another.substring((n+10), (another.length-15));
