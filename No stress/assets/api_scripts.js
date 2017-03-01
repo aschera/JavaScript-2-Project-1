@@ -152,12 +152,11 @@ function everythingElse() {
                     
 
                     // link
-
                     var test=json.response.venues[i].url;
 
                     console.log(test);
 
-                    if ( test != undefined){
+                    if ( test != undefined){  // testing if link exists in object
 
                         console.log('test here');
 
@@ -176,8 +175,14 @@ function everythingElse() {
  			node.appendChild(image);                          
 
                     	node.appendChild(textnode);
+			
+			// adress
+			var test2 = json.response.venues[i].location.address;
 
-                    	node.appendChild(x);
+			if ( test2 != undefined){  //test if address exists
+				node.appendChild(x);
+			};
+                    	
                       	node.appendChild(link);
 
                     }else {
@@ -185,7 +190,12 @@ function everythingElse() {
 
                     	node.appendChild(textnode);
 
-                    	node.appendChild(x);
+                    	// adress
+			var test2 = json.response.venues[i].location.address;
+
+			if ( test2 != undefined){  //test if address exists
+				node.appendChild(x);
+			};
 			};
 
                     
