@@ -757,7 +757,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-    {
+    /*{
 		name:"Korea (Democratic People's Republic of",
 		island:false,
 		excitement:'Attractions',
@@ -768,7 +768,7 @@ let references = [
 		temp:'Cold',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'South Africa',
 		island:false,
