@@ -53,67 +53,157 @@ var result_country = {
 function everythingElse() {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////  //                
+        // DOM-element to display results in.
+
+                        
+
         // URL Foursquare
+
         let url = 'https://api.foursquare.com/v2/venues/search?';
+
         
+
         //date
+
         url += 'v=' + '20170221' + '&';
+
                 
-        //limit 5
-        url += 'limit=' + 10 + '&';
+
+        //limit 
+
+        url += 'limit=' + 20 + '&';
+
                 
+
         // coordinates
+
         //url += 'll=' + result_country.lat + ',' + result_country.lng + '&';
+
                 
+
         // near city
+
         url += 'near=' + result_country.name + '&';
 
+
+
         //what
+
         let categoryId = 'restaurant' + '&';
+
         url += 'query=' + categoryId;
+
                 
+
         //identification
+
         url += 'client_id=RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W&client_secret=U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X';
-                
+
+            https://api.foursquare.com/v2/venues/search?v=20170221&limit=&near=&restaurant&query=client_id=RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W&client_secret=U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X    
+
         // AJAX request Foursquare
+
+    console.log('hello');
+
         let ajax = new XMLHttpRequest();
+
         ajax.open('get', url);
+
         ajax.onreadystatechange = function() {
+
             if( ajax.status == 200 && ajax.readyState == 4 ) {
+
                 // AJAX success
+
                 let json = JSON.parse(ajax.responseText);
-                
-                
+
+                console.log(json);
+
                 for (i = 0; i < json.response.venues.length; i++ ) {
+
                     var node = document.createElement("LI"); 
+
                     var textnode = document.createTextNode(" " + json.response.venues[i].name +  " ");
+
                     var x = document.createTextNode('- ' + json.response.venues[i].location.address);
-                    var y = document.createTextNode('- ' + json.response.venues[i].url);         
+
+                    var y = document.createTextNode('- ' + json.response.venues[i].url); 
+
+                    
+
+                      console.log(json.response.venues[i].url+' this is url');
+
+                    
+
+                    //picture icon
 
                     var four_icon = (
+
                         json.response.venues[i].categories['0'].icon.prefix + 'bg_' + '32' +    json.response.venues[i].categories['0'].icon.suffix
+
                     );    
 
+
+
                     let image = document.createElement('img');                    
+
                     image.src = four_icon;
-                            
-                    let link = document.createElement('link');  
-                    link.href = json.response.venues[i].url;
-    
+
+                    
+
+                    // link
+
+                    var test=json.response.venues[i].url;
+
+                    console.log(test);
+
+                    if ( test != undefined){
+
+                        console.log('test here');
+
+                        let link = document.createElement('a');
+
+                        var linkText=document.createTextNode("my title text");
+
+                        link.appendChild(linkText);
+
+                        link.title="my title text";
+
+                        link.href= json.response.venues[i].url;
+
+                       
+
+                      node.appendChild(link);
+
+                    };
+
+                    
+
                     node.appendChild(image);                          
+
                     node.appendChild(textnode);
+
                     node.appendChild(x);
-                    node.appendChild(link);
+
+                   
+
                             
+
                     document.getElementById("list").appendChild(node);     
+
                 }     
+
             }
+
             else if( ajax.status != 200 ) {
+
                 status.innerHTML = 'Error';
+
             }
+
         }
+
         ajax.send();
-            
             
             
         //////////////////////////////////////////////////////////////////////////////////////////////////////////  // URL Weather API
