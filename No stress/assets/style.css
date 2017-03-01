@@ -157,16 +157,17 @@ p {
 }
 
 ul > li > a {
-  font: bold 11px Arial;
+  font: bold 1em;
   text-decoration: none;
   background-color: #FFF700;
   color: #000000;
-  margin-left: 3px;
-  padding: 5px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
+  margin-left: 5px;
+  padding: 2px 3px 2px 3px;
+  border-top: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF;
+  border-radius:5px;
 };
 
 .theweather {
