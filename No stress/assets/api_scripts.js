@@ -124,6 +124,7 @@ function everythingElse() {
         let svar1x = document.getElementById('weather1');
         let svar2x = document.getElementById('weather2');
         let svar3x = document.getElementById('weather3');
+	let weatherHeader = document.getElementById('weather-header');					
             
         let urlx='http://api.openweathermap.org/data/2.5/weather?';
         urlx += 'q=' + result_country.city +',uk&APPID=5d224fafcdf9102b03d9243837eb00d4' + '&units=metric'
@@ -135,6 +136,7 @@ function everythingElse() {
             if(ajaxx.status==200 && ajaxx.readyState==4){
                 var object=JSON.parse(ajaxx.responseText);
                 var data = object.weather[0];
+		console.log(ajaxx.responseText);
                 var main= object.main;
 
                 var weatherIcon = data.icon;
@@ -148,6 +150,7 @@ function everythingElse() {
                 svar1x.appendChild(img);
                 svar2x.innerHTML= ` <br> Temperature: `;
                 svar3x.innerHTML= ` <br> <strong> ${main.temp } C </strong>`;
+		weatherHeader.innerHTML= '<span style="font-size:1.5em; color:#00000; text-shadow: 1px 1px 1px #FFF700;";><strong>' + 'Weather today: ' + result_country.city + '</span></strong>';
             }
             else if( ajaxx.status != 200 ) {}
         }
@@ -189,7 +192,7 @@ function everythingElse() {
                 another = another.substring((n+10), (another.length-15));
          
                 wiki.innerHTML = '<p style="font-size:1em">' + another + '</p>';
-                wikiHeader.innerHTML = '<span style="font-size:1.5em; color:#FFF700; text-shadow: 1px 2px 1px black;";><strong>' + result_country.name + '</span><h3>' + result_country.city + '</strong></h3>';
+                wikiHeader.innerHTML = '<span style="font-size:1.5em; color:#00000; text-shadow: 1px 1px 1px #FFF700;";><strong>' + result_country.name + '</span><h3>' + result_country.city + '</strong></h3>';
             }
             else if( ajax3.status != 200 ) {
                 console.log('error');
