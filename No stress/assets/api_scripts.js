@@ -12,16 +12,12 @@ var result_country = {
     city: ''
 };
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//foursquare needs id!
-    //client id:RHPTHZQRVD1O3M0AX3SREE4QJWLPPAEIFJAOGZHTTWT12A4W
-    // client secret: U4SDRN4NDPX3EZSXSIK44ZZCWIT01FGS54PE3EGF2VSYD53X
 
     var apiRequest = apiName => {
         result_country.name = apiName;
         console.log(apiName);
         
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////  //
         // URL REST countries API
         // We need this to find the capital city of the country we find.
         // and also the latitude and longtitude for the google map
@@ -56,8 +52,7 @@ var result_country = {
 
 function everythingElse() {
 
-        // DOM-element to display results in.
-                        
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////  //                
         // URL Foursquare
         let url = 'https://api.foursquare.com/v2/venues/search?';
         
@@ -87,6 +82,8 @@ function everythingElse() {
             if( ajax.status == 200 && ajax.readyState == 4 ) {
                 // AJAX success
                 let json = JSON.parse(ajax.responseText);
+                
+                
                 for (i = 0; i < json.response.venues.length; i++ ) {
                     var node = document.createElement("LI"); 
                     var textnode = document.createTextNode(" " + json.response.venues[i].name +  " ");
@@ -161,7 +158,7 @@ function everythingElse() {
 
         // DOM-element to display results in.
         let wiki = document.getElementById('wiki_box');
-        let wikihead = document.getElementById('wiki_header');
+        let wikiHeader = document.getElementById('wiki-heading');
 
         let url3 = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=';
 
@@ -190,7 +187,7 @@ function everythingElse() {
                 another = another.substring((n+10), (another.length-15));
          
                 wiki.innerHTML = '<p style="font-size:1em">' + another + '</p>';
-                
+                wikiHeader.innerHTML = '<span style="font-size:1.5em; color:#FFF700; text-shadow: 1px 2px 1px black;";><strong>' + result_country.name + '</span><h3>' + result_country.city + '</strong></h3>';
             }
             else if( ajax3.status != 200 ) {
                 console.log('error');
