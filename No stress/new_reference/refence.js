@@ -33,8 +33,8 @@ let references = [
 		size:'Small',
 		temp:'Hot',
 		population_density:'Dense',
-		natural_disasters:true
-		city:Kingston, Jamaica
+		natural_disasters:true,
+		city:'Kingston, Jamaica'
 
 	},
 	{
@@ -294,7 +294,7 @@ let references = [
 		island:false,
 		excitement:'Wonders',
 		safe:true,
-		dangerous_animals:True,
+		dangerous_animals:true,
 		dangerous_diseases:false,
 		size:'Large',
 		temp:'Hot',
@@ -306,7 +306,7 @@ let references = [
 		island:false,
 		excitement:'Wonders',
 		safe:false,
-		dangerous_animals:True,
+		dangerous_animals:true,
 		dangerous_diseases:false,
 		size:'Large',
 		temp:'Hot',
@@ -320,7 +320,7 @@ let references = [
 		safe:true,
 		dangerous_animals:false,
 		dangerous_diseases:false,
-		size:'Large,
+		size:'Large',
 		temp:'Cold',
 		population_density:'Scarce',
 		natural_disasters:false
