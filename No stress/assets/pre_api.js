@@ -626,7 +626,7 @@ let references = [
 		population_density:'Dense',
 		natural_disasters:false
 	},
-    {
+    /*{
 		name:'Scotland',
 		island:true,
 		excitement:'Wonders',
@@ -637,7 +637,7 @@ let references = [
 		temp:'Cold',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Belize',
 		island:false,
@@ -1059,7 +1059,7 @@ let references = [
 		natural_disasters:false
 	},
 	{
-		name:'Signapore',
+		name:'Singapore',
 		island:false,
 		excitement:'Attractions',
 		safe:false,
@@ -1250,7 +1250,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Marshall Islands',
 		island:true,
 		excitement:'Attractions',
@@ -1261,7 +1261,7 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Djibouti',
 		island:false,
