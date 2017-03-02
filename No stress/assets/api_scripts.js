@@ -281,11 +281,11 @@ function everythingElse() {
                 // AJAX success
                 var object2=JSON.parse(ajax3.responseText);
   
-                var another = JSON.stringify(object2.query.pages);
+                var another = JSON.stringify(object2.query.pages); // change the object to a string.
                 
                 //another  = another.replace(/\n+/, "");   // tested regex, this didnt work.
      
-                var n = another.indexOf('extract":"');
+                var n = another.indexOf('extract":"'); // this is the word we start at.
                 another = another.substring((n+10), (another.length-15));   // to remove some odd characters in the beginning and end.
          
                 wiki.innerHTML = '<p style="font-size:1em">' + another + '</p>';

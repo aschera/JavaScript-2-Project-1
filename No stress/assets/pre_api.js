@@ -23,7 +23,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Jamaica',
 		island: true,
 		excitement:'Attractions',
@@ -36,7 +36,7 @@ let references = [
 		natural_disasters:true,
 		city:'Kingston, Jamaica'
 
-	},
+	},*/
     {
 		name:'Panama',
 		island:false,
@@ -97,7 +97,7 @@ let references = [
 		population_density:'Scarse',
 		natural_disasters:true
 	},
-	{
+	/*{
 		name:'Tanzania, United Republic of',
 		island:true,
 		excitement:'Wonders',
@@ -108,7 +108,7 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Republic of Paraguay',
 		island:false,
@@ -121,7 +121,7 @@ let references = [
 		population_density:'dense',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Bangladesh',
 		island:false,
 		excitement:'Wonders',
@@ -132,7 +132,7 @@ let references = [
 		temp:'Hot',
 		population_density:'dense',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Bulgaria',
 		island:false,
@@ -301,7 +301,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},*/
-    {
+    /*{
 		name:'India',
 		island:false,
 		excitement:'Wonders',
@@ -313,7 +313,7 @@ let references = [
 		population_density:'Dense',
 		natural_disasters:false,
 		city: 'New Delhi'
-	},
+	},*/
 	{
 		name:'Italy',
 		island:true,
@@ -579,14 +579,14 @@ let references = [
 		natural_disasters:false
 	},
 	{
-		name:'United States of America',
+		name:'USA',
 		island:false,
 		excitement:'Wonders',
 		safe:true,
 		dangerous_animals:true,
 		dangerous_diseases:false,
 		size:'Large',
-		temp:'Hot',
+		temp:'Cold',
 		population_density:'Scarce',
 		natural_disasters:true
 	},
@@ -830,7 +830,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Kiribati',
 		island:true,
 		excitement:'Attractions',
@@ -841,8 +841,8 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
-	{
+	},*/
+	/*{
 		name:'Central African Republic',
 		island:false,
 		excitement:'Attractions',
@@ -853,7 +853,7 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Tajikistan',
 		island:false,
@@ -902,7 +902,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Iran (Islamic Republic of)',
 		island:false,
 		excitement:'Attractions',
@@ -913,7 +913,7 @@ let references = [
 		temp:'Cold',
 		population_density:'Dense',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Czech Republic',
 		island:false,
@@ -950,7 +950,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-	{
+	/*{
 		name:'Ghana',
 		island:false,
 		excitement:'Attractions',
@@ -961,7 +961,7 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Liechtenstein',
 		island:false,
