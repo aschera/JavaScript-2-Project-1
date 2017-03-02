@@ -61,31 +61,21 @@ function everythingElse() {
 
         let url = 'https://api.foursquare.com/v2/venues/search?';
 
-        
-
         //date
 
         url += 'v=' + '20170221' + '&';
-
-                
 
         //limit 
 
         url += 'limit=' + 20 + '&';
 
-                
-
         // coordinates
 
         //url += 'll=' + result_country.lat + ',' + result_country.lng + '&';
 
-                
-
         // near city
 
         url += 'near=' + result_country.name + '&';
-
-
 
         //what
 
@@ -251,7 +241,7 @@ function everythingElse() {
 
                 let img = document.createElement('img');
                 img.src=iconURL;
-                //document.body.appendChild(img);
+            
                              
                 svarx.innerHTML=`<br>  ${data.description} `;
                 svar1x.appendChild(img);
@@ -293,10 +283,10 @@ function everythingElse() {
   
                 var another = JSON.stringify(object2.query.pages);
                 
-                another  = another.replace(/\n+/, "");
+                //another  = another.replace(/\n+/, "");   // tested regex, this didnt work.
      
                 var n = another.indexOf('extract":"');
-                another = another.substring((n+10), (another.length-15));
+                another = another.substring((n+10), (another.length-15));   // to remove some odd characters in the beginning and end.
          
                 wiki.innerHTML = '<p style="font-size:1em">' + another + '</p>';
                 wikiHeader.innerHTML = '<span style="font-size:1.5em; color:#00000; text-shadow: 1px 1px 1px #FFF700;";><strong>' + result_country.name + '</span><h3>' + result_country.city + '</strong></h3>';

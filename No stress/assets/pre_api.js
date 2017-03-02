@@ -253,7 +253,7 @@ let references = [
 		population_density:'Dense',
 		natural_disasters:true
 	},
-	{
+	/*{
 		name:'Korea',
 		island:false,
 		excitement:'Wonders',
@@ -264,7 +264,7 @@ let references = [
 		temp:'Cold',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
 	{
 		name:'Sierra Leone',
 		island:false,
