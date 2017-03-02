@@ -134,7 +134,7 @@
                                     Information
                                 </p>
                             </div>
-                            <div id="wiki_box" style="background-color:black; color:white;"  class="panel-body"></div><!--panel body1-->
+                            <div id="wiki_box" style="background-color:rgb(30,30,30); color:white;"  class="panel-body"></div><!--panel body1-->
                         </div><!-- /panel default -->
                     </div>
                     <div class="col-lg-6">
@@ -153,7 +153,7 @@
                                     <strong>Restaurants</strong>
                                 </p>
                             </div>
-                            <div id="foursquare_box" class="panel-body" style="background-color:black; color:white;">
+                            <div id="foursquare_box" class="panel-body" style="background-color:rgb(30,30,30); color:white;">
                                 <!-- FOURSQUARE -->
                                 <ul id="list"></ul>
                             </div><!--panel body1-->
@@ -166,7 +166,7 @@
                                     Weather
                                 </p>
                             </div>
-                            <div id="weather_box" class="panel-body" style="background-color:black; color:white;">
+                            <div id="weather_box" class="panel-body" style="background-color:rgb(30,30,30); color:white;">
                                 <!-- WEATHER -->
                                 <div class="col-lg-6" style="float: left; margin: 0 auto;">
                                     <div class="col-lg-6" id="weather" style="padding:0px; height:100%; float: left; margin: 0 auto;"></div>
@@ -187,7 +187,8 @@
                 <!-- Google needs id! AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk -->
             </div>
         <script type="text/javascript">
-//
+
+// Google api
 
         function createMap(latitude, longitude) {
         var map = new google.maps.Map(document.getElementById("map_box"), {
@@ -200,8 +201,9 @@
         });
         }
         //]]>
-        </script><script type="text/javascript" src="assets/pre_api.js">
-</script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&amp;callback=initMap" async="" defer="defer" type="text/javascript">
+        </script><script type="text/javascript" src="assets/pre_api.js"> // script with country references and quiz algorithm
+
+</script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqlDUN18gi5vXn7lqtHJXUCwnqmKkjNXk&amp;callback=initMap" async="" defer="defer" type="text/javascript"> // this is the login script for google maps
 </script>
     </body>
 </html>

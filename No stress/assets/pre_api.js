@@ -289,7 +289,7 @@ let references = [
 		population_density:'Scarce',
 		natural_disasters:false
 	},
-		{
+		/*{
 		name:'Indonesian',
 		island:false,
 		excitement:'Wonders',
@@ -300,7 +300,7 @@ let references = [
 		temp:'Hot',
 		population_density:'Scarce',
 		natural_disasters:false
-	},
+	},*/
     {
 		name:'India',
 		island:false,
@@ -311,7 +311,8 @@ let references = [
 		size:'Large',
 		temp:'Hot',
 		population_density:'Dense',
-		natural_disasters:false
+		natural_disasters:false,
+		city: 'New Delhi'
 	},
 	{
 		name:'Italy',
